@@ -1,7 +1,25 @@
 = render "shared/topbar"
+-# %br
+-# = image_pack_tag("media/images/test.jpg")
+
+/ Button trigger modal
+-# %button.btn.btn-primary{"data-bs-target" => "#exampleModal", "data-bs-toggle" => "modal", :type => "button"}
+-#   Launch demo modal
+-# / Modal
+-# #exampleModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :tabindex => "-1"}
+-#   .modal-dialog
+-#     .modal-content
+-#       .modal-header
+-#         %h5#exampleModalLabel.modal-title Modal title
+-#         %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "modal", :type => "button"}
+-#       .modal-body
+-#         \...
+-#       .modal-footer
+-#         %button.btn.btn-secondary{"data-bs-dismiss" => "modal", :type => "button"} Close
+-#         %button.btn.btn-primary{:type => "button"} Save changes
 
 .d-flex.align-items-center.p-3.my-3.text-white.bg-purple.rounded.shadow-sm
-  %img.me-3{:alt => "", :height => "38", :src => "/docs/5.1/assets/brand/bootstrap-logo-white.svg", :width => "48"}/
+  -# %img.me-3{:alt => "", :height => "38", :src => "media/images/test.jpg", :width => "48"}/
   .lh-1
     %h1.h6.mb-0.text-white.lh-1 Bootstrap
     %small Since 2011
