@@ -1,20 +1,21 @@
-%nav.navbar.navbar-expand-lg.fixed-top.navbar-dark.bg-dark{"aria-label" => "Main navigation"}
-  .container-fluid
-    %a.navbar-brand{:href => "#"} Open Vagas
-    %button#navbarSideCollapse.navbar-toggler.p-0.border-0{"aria-label" => "Toggle navigation", :type => "button"}
-      %span.navbar-toggler-icon
-    #navbarsExampleDefault.navbar-collapse.offcanvas-collapse
-      %ul.navbar-nav.me-auto.mb-2.mb-lg-0
+%nav.navbar.navbar-expand-md.fixed-top.navbar-dark.bg-dark
+  %a.navbar-brand{:href => "#"} Open Vagas
+  %button.navbar-toggler.p-0.border-0{"data-toggle" => "offcanvas", :type => "button"}
+    %span.navbar-toggler-icon
+  #navbarsExampleDefault.navbar-collapse.offcanvas-collapse
+    %ul.navbar-nav.mr-auto
+      %li.nav-item.active
+        %a.nav-link{:href => root_path}
+          Inicio
+          %span.sr-only (current)
+      %li.nav-item.active
+        %a.nav-link{:href => root_path}
+          Minha Empresa
+      - unless user_signed_in?
         %li.nav-item
-          %a.nav-link.active{"aria-current" => "page", :href => root_path} Inicio
-        %li.nav-item
-          %a.nav-link{:href => "#"} Login/Cadastro
-        -# %li.nav-item.dropdown
-        -#   %a#dropdown01.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#"} Settings
-        -#   %ul.dropdown-menu{"aria-labelledby" => "dropdown01"}
-        -#     %li
-        -#       %a.dropdown-item{:href => "#"} Action
-        -#     %li
-        -#       %a.dropdown-item{:href => "#"} Another action
-        -#     %li
-        -#       %a.dropdown-item{:href => "#"} Something else here
+          = link_to 'Login/Cadastro', new_user_session_path, class: 'nav-link'
+      - if user_signed_in?
+        %li.nav-item.dropdown
+          %a#dropdown01.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#"} Settings
+          .dropdown-menu{"aria-labelledby" => "dropdown01"}
+            = link_to('Sair', destroy_user_session_path, method: :delete, class: 'dropdown-item')
