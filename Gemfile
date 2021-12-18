@@ -18,6 +18,7 @@ gem 'devise'
 gem 'haml'
 gem "haml-rails"
 
+gem 'image_processing'
 # gem 'kaminari'
 # gem 'kaminari-bootstrap'
 # gem 'ransack'

@@ -1,5 +1,5 @@
 %nav.navbar.navbar-expand-md.fixed-top.navbar-dark.bg-dark
-  %a.navbar-brand{:href => root_path} Open Vagas
+  %a.navbar-brand{:href => "#"} Open Vagas
   %button.navbar-toggler.p-0.border-0{"data-toggle" => "offcanvas", :type => "button"}
     %span.navbar-toggler-icon
   #navbarsExampleDefault.navbar-collapse.offcanvas-collapse
@@ -8,13 +8,13 @@
         %a.nav-link{:href => root_path}
           Inicio
           %span.sr-only (current)
-      %li.nav-item.active
-        %a.nav-link{:href => new_company_path}
-          Minha Empresa
       - unless user_signed_in?
         %li.nav-item
           = link_to 'Login/Cadastro', new_user_session_path, class: 'nav-link'
       - if user_signed_in?
+        %li.nav-item.active
+          %a.nav-link{:href => dynamic_url_company}
+            Minha Empresa
         %li.nav-item.dropdown
           %a#dropdown01.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#"} Settings
           .dropdown-menu{"aria-labelledby" => "dropdown01"}

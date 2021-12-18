@@ -4,15 +4,16 @@ class CompaniesController < ApplicationController
   end
 
   def edit
+    @company = current_user.company
   end
 
   def create
     @company = current_user.build_company(company_params)
     if @company.save
-      flash[:notice] = "Empresa cadastrada com sucesso!"
+      flash[:notice] = 'Empresa cadastrada com sucesso.'
       redirect_to root_path
     else
-      flash[:error] = "Erro ao cadastrar a empresa."
+      flash[:error] = 'Erro ao cadastrar a empresa.'
       render :new
     end
   end

@@ -12,3 +12,6 @@
     = render 'shared/topbar'
     %main.container{:role => "main"}
       = yield
+    %footer
+      %p Sistema desenvolvido pro Elton Santos
+      %p= "Desde de #{Time.new.year}"
